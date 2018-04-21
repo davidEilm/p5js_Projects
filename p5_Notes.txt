@@ -1,0 +1,1 @@
+p5 g -b <projectName>	-> Generates a new Project; -b = bundle, means that all libraries are local in the generated folder, and that no collection needs to be made first.
