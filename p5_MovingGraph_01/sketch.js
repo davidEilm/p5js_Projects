@@ -1,13 +1,13 @@
 const incrementValue = 0.01;
 const movingSpeed = 4
-var width;
+var width; //Don't initialize the values here, do it in setup(). Otherwise the outcome is too small for some reason...
 var height;
 
 var start = 0;
 
 function setup() {
-	width = windowWidth / 2
-	height = windowHeight / 2
+	width = 600
+	height = 600
 	createCanvas(width, height);
 	noiseDetail(4)
 }
@@ -15,9 +15,12 @@ function setup() {
 function draw() {
 	background(240)
 
+	fill(0);
+	text(floor(frameRate()) + " fps", 0, 10);
+	fill(255);
+
 	stroke(200, 0, 0, 100)
 	line(0, height / 2, width, height / 2)
-	rect(1,1,10,10)
 	stroke(0)
 
 	noFill()
