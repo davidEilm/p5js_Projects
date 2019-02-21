@@ -10,7 +10,7 @@ var vEnd
 var hStart
 var hEnd
 
-var wave = 0;
+var scrollValue = 0;
 
 const padding = 35;
 const incrementValue = 0.05;
@@ -39,20 +39,25 @@ function setup() {
 function computeLinePos() {
 	line1 = vStart
 
-	line3 = vPart + sin(wave) * 50
+	line3 = vPart + scrollValue
 	line2 = line3 - vPartOffset
 	line4 = line3 + vPartOffset
 
-	line6 = 2 * vPart + sin(wave) * 50
+	line6 = 2 * vPart + scrollValue
 	line5 = line6 - vPartOffset
 	line7 = line6 + vPartOffset
 
 	line8 = vEnd
 }
 
+function mouseWheel(event) {
+	scrollValue += event.delta;
+	scrollValue = constrain(scrollValue, -84, 84);
+	return false;
+}
+
 function draw() {
 	computeLinePos()
-	wave += incrementValue
 
 	background(0)
 	fill(0)
